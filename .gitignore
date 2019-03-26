@@ -340,6 +340,7 @@ StyleCopReport.xml
 !.axoCover/settings.json
 
 # Visual Studio code coverage results
+.vscode
 
 # NCrunch
 
