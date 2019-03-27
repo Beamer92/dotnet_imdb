@@ -9,6 +9,6 @@ namespace ReplaceJS.Models
         {
         }
 
-        public DbSet<Actor> Actors { get; set; }
+        public DbSet<actor> actors { get; set; }
     }
 }

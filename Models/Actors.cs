@@ -2,7 +2,7 @@ using System;
 
 namespace ReplaceJS.Models
 {
-    public class Actor
+    public class actor
     {
         public int id {get; set;}
         public string name {get; set;}
@@ -11,8 +11,8 @@ namespace ReplaceJS.Models
         public DateTime birth_date {get; set;}
         public DateTime created_at {get; set;}
         public DateTime updated_at {get; set;}
-        public Actor(){}
-        public Actor(int Id, string Name, string Bio, string profile, DateTime BD, DateTime created,  DateTime updated)
+        public actor(){}
+        public actor(int Id, string Name, string Bio, string profile, DateTime BD, DateTime created,  DateTime updated)
         {
             id = Id;
             name = Name;
