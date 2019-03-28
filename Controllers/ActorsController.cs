@@ -31,24 +31,21 @@ namespace ReplaceJS.Controllers
             return _context.actors.ToList(); 
         } 
 
-        //I don't know what this is for.... why? /*
-        // public actorsController(ActorsContext context)
-        // {   context = _context;
-        //     if (_context.actors.Count() == 0)             
-        //     {                 
-        //         _context.actors.Add(new actor { name = "Nolan Hellyer" });
-        //         _context.SaveChanges();             
-        //     } 
-        // } */
-        
-
         //GET actors/1
-        // [HttpGet("{id}")]
-        // public async Task<ActionResult<Actor>> GetActor(int id)
-        // {
+        [HttpGet("{id}")]
+        public ActionResult<actor> GetActor(int id)
+        {
+            var qur = _context.actors.Where(s => s.id == id).First();
 
+            var query = from act in  _context.actors where act.id == id
+                        select act;
             
-        // }
+            // return query;
+            return qur;
+
+            //Find out more about Action Results
+        }
+        //WHY ISN'T QUERYING THE DB ASYNCHRONOUS!?!?!?!
 
         //POST actors
 
