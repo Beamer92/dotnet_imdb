@@ -28,7 +28,6 @@ namespace ReplaceJS
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<ActorsContext>(options => options.UseNpgsql(Configuration.GetConnectionString("DefaultConnection")));
-            // Console.WriteLine(Configuration.GetConnectionString("DefaultConnection"));
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
 

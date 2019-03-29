@@ -36,18 +36,30 @@ namespace ReplaceJS.Controllers
         public ActionResult<actor> GetActor(int id)
         {
             var qur = _context.actors.Where(s => s.id == id).First();
-
-            var query = from act in  _context.actors where act.id == id
-                        select act;
-            
-            // return query;
             return qur;
-
-            //Find out more about Action Results
         }
+        /* **** THIS IS THE SAME THING ******* */
+        // public IQueryable<actor> GetActor(int id)
+        // {
+        //     var query = from act in  _context.actors where act.id == id
+        //                 select act;
+        //     return query;
+        // }
+
         //WHY ISN'T QUERYING THE DB ASYNCHRONOUS!?!?!?!
 
+
         //POST actors
+        [HttpPost]
+
+        // public void Post([FromBody] string value)
+        // {
+            
+        // }
+        public actor Index(actor newact)
+        {
+            return newact;
+        }
 
         //PUT actors/1
 
