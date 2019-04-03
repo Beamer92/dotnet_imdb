@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
@@ -46,22 +47,45 @@ namespace ReplaceJS.Controllers
         //     return query;
         // }
 
-        //WHY ISN'T QUERYING THE DB ASYNCHRONOUS!?!?!?!
-
 
         //POST actors
         [HttpPost]
 
-        // public void Post([FromBody] string value)
+        // public async Task<ActionResult<actor>> NewActor(actor newact)
         // {
-            
+        //     _context.actors.Add(newact);
+        //     await _context.SaveChangesAsync();
+        //     return CreatedAtAction(nameof(GetActor), new { id = newact.id }, newact);
         // }
-        public actor Index(actor newact)
+
+        public ActionResult<actor> NewActor(actor newact)
         {
-            return newact;
+             using (var reader = new StreamReader(this.Request.Body))
+            {
+                var body = reader.ReadToEnd();
+                Console.WriteLine(body);
+               
+            }
+            _context.actors.Add(newact);
+            _context.SaveChanges();
+            return CreatedAtAction(nameof(GetActor), new { id = newact.id }, newact);
         }
+        /*Sync and ASYNC both work, so I'm definitely getting ASYNC somewhere else... */
+        //Updated At doesn't update yet, handle in PUT
+
 
         //PUT actors/1
+        // [HttpPut("{id}")]
+        // public ActionResult<actor> UpdateActor(int id)
+        // {
+        //     //find the way to grab the request data here
+        //     using (var reader = new StreamReader(Request.Body))
+        //     {
+        //         var body = reader.ReadToEnd();
+        //         Console.WriteLine(body);
+        //         // Do something
+        //     }
+        // }
 
         //delete actors/1
 
