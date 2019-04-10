@@ -90,9 +90,23 @@ namespace ReplaceJS.Controllers
                 return oldact;
         }
 
-
         //delete actors/1
+        [HttpDelete("{id}")]
+        public ActionResult DeleteActor(int id)
+        {
+            var oldact = _context.actors.FirstOrDefault(c => c.id == id);
+            
+            if(oldact == null)
+            {
+                return new NotFoundResult();
+            }
 
+            _context.actors.Remove(oldact);
+            _context.SaveChanges();
+            System.Diagnostics.Debug.WriteLine("HELLO NOOB");
+            return StatusCode(200, "Actor Successfully Deleted");
+
+        }
         //GET actors/1/movies
 
         //patch actors/1/movies/add
