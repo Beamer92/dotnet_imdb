@@ -107,7 +107,10 @@ namespace ReplaceJS.Controllers
             return StatusCode(200, "Actor Successfully Deleted");
 
         }
+
+
         //GET actors/1/movies
+        
 
         //patch actors/1/movies/add
 
